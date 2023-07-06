@@ -1,0 +1,44 @@
+PHP Classes & Objects - Typed Properties - Constructors & Destructors
+
+In this example, we'll create a simple class called Person that demonstrates the use of typed properties, constructors, and destructors.
+
+php
+Copy code
+class Person {
+    private string $name;
+    private int $age;
+
+    public function __construct(string $name, int $age) {
+        $this->name = $name;
+        $this->age = $age;
+        echo "New person created: {$this->name}" . PHP_EOL;
+    }
+
+    public function sayHello() {
+        echo "Hello, my name is {$this->name} and I am {$this->age} years old." . PHP_EOL;
+    }
+
+    public function __destruct() {
+        echo "{$this->name} object destroyed." . PHP_EOL;
+    }
+}
+
+// Create a new Person object
+$person = new Person("John Doe", 25);
+
+// Call the sayHello method
+$person->sayHello();
+
+// Output:
+// New person created: John Doe
+// Hello, my name is John Doe and I am 25 years old.
+// John Doe object destroyed.
+In this example, we define a Person class with two private properties: $name and $age. These properties are declared with type hints (string and int) to enforce the type of data they can hold.
+
+The __construct() method serves as the constructor for the Person class. It takes the $name and $age as arguments and initializes the corresponding properties. In this example, it also outputs a message indicating that a new person has been created.
+
+The sayHello() method simply outputs a message with the person's name and age.
+
+The __destruct() method is a destructor that gets automatically called when the Person object is no longer referenced or goes out of scope. In this example, it outputs a message indicating that the object has been destroyed.
+
+Finally, we create a new Person object, call the sayHello() method to display a greeting, and observe the destruction of the object when it goes out of scope.
